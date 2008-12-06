@@ -1,0 +1,13 @@
+Tutorial: Learning Merb
+
+----- Philosophy
+
+* Main focus these days: fast, lightweight, powerful.
+
+* Modular. For example, view helpers are not needed for a web service, so you
+  should be able to pull those out.
+  
+* Agnostic. merb-core is agnostic, but by default you get DataMapper for ORM,
+  RSpec for testing/specs.
+  
+* Gave a quick look at a model and controller.
