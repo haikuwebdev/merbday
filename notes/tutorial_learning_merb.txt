@@ -12,6 +12,25 @@ Tutorial: Learning Merb
   
 * Gave a quick look at a model and controller.
 
------ App
+----- App, Misc
 
 * `merb-gen core` to build a core app
+
+* Architecture. Using resources.
+
+* DataMapper
+  - Easy to write DataMapper datastore adapters. For example: Salesforce 
+    adapter, YouTube adapter (represents YouTube queries).
+  - Crazy migrations (??)
+  - DataMapper auto upgrade works in production.
+  
+* action-args uses ParseTree on boot up. Interested to dig into further.
+
+* The generated code represents best Merb practices. Should follow the styles 
+  and conventions of generated code.
+  
+* Careful with automigrate rake task. Don't run on production.
+
+* Lots of questions about migrations that I'm not grokking at the moment, but
+  these are essentially DataMapper questions.
+  
