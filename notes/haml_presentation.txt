@@ -1,0 +1,51 @@
+HAML/Sass Presentation
+
+----- HAML
+
+* use_template_engine :haml will still allow you to use erb. It just looks for
+  haml first.
+  
+* {} contents: anything that returns a hash.
+
+* [] shortcuts look useful. [object, what_to_prepend]. div[@user, :greeeting]
+
+* ~ preserves whitespace. Useful with textareas.
+
+* !!! for xhtml doctype
+
+* Use [:ugly] mode for production since it's faster.
+
+* Filters
+  :javascript
+    function foo() {
+      alert("#{message[:notice]}")
+    }
+
+  %style
+    :sass
+      form
+        font-size: 10px
+        
+  :markdown
+    = @post.comment
+  
+----- SASS
+
+* Sass syntax also accepts the colon behind the property, so these are 
+  equivalent:
+  h1
+    :margin 5px
+  h1
+    margin: 5px
+    
+* Reusable CSS
+  = spacing
+    padding: 200px
+    margin-top: 40px
+  
+  body
+    font-family: Arial, sans-serif
+    +spacing
+    
+  Useful to put these variables in a file that can be included and shared 
+  across stylesheets.

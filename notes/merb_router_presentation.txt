@@ -1,0 +1,9 @@
+Merb Router Presentation
+
+* Match 3 simple route.
+
+* Pass variables to match, pretty much just like Rails.
+
+* Can use :subdomains as a hash key to match. Works well with single 
+  subdomains, but with many (passed as an array) it can get a little ugly 
+  because they get squashed together with a to_s.
