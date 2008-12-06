@@ -1,0 +1,64 @@
+Keynote
+
+* On Merb 2.0 and Merb core principles
+
+----- Core Principles
+
+* Performance
+  - Requests per second
+  - kcachegrind profiling tool
+  
+* Concurrency
+
+* Threadsafety
+  - autoload is not thread safe
+  - Merb::Config[:use_mutex]
+  - Merb avoids shared state
+  - Solutions:
+    - Use thread-local variable, e.g., Thread.current[:user]
+    - Lock mutex. Mutexes make non-atomic operations atomic.
+    
+* Modularity
+  - The value of modularity does not reveal itself right away. It takes time
+    working with the framework.
+  - Marshall.load(Marshall.dump) # way to deep clone in Ruby
+
+* Good Ruby citizen
+  - Use Rubygems, which is not great, but getting better.
+  - Working with community and helping the community. Using existing software,
+    not rolling own of everything.
+  - Rack middleware.
+  
+----- Merb 2.0
+
+* Apps as a first-class concept. Apps and slices basically become the same. You
+  mount an app inside another app. Slices on steroids.
+
+* Applications get their own namespace. Ruby has fairly flat top-level 
+  namespace. For example, if you define
+  
+* Admin application/framework. If you make an app/slice, you can specify some
+  administration capabilities.
+  
+* CMS application.
+
+* DB admin similar to Django.
+
+* Resources as a first-class concept. Less passing around resource-like objects
+  in the context of MVC. Sort of a way to define a resource that negated the
+  need for a controller, or make it very minimal.
+  - Why? DRY up common idioms.
+  - Increasing flexibility where needed.
+  - Core principle: simple cases can't get harder.
+  
+* Further improve merb server
+  - Short-term: better monitoring
+  - Long-term: dynamic worker pools. Swiftiply. Self-managing cluster. Remove
+    need for nginx, web server.
+    
+* Additional modules
+  - i18n. Probably coming with Ruby 1.9 integration.
+  - l10n. Provide framework
+  
+(Many other things, probably better pulled from presentation slides.)
+  

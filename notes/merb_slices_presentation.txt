@@ -1,0 +1,12 @@
+Merb Slices Presentation
+
+* Small apps that can be dropped into your app and distributed as a gem.
+
+* Same directory structure as a Merb app.
+
+* Run with `slice`
+
+* See the PDF in the repository.
+
+* Use merb-auth b/c future slices may assume you're using at least 
+  merbauth-core.
