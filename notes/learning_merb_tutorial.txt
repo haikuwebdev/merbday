@@ -1,0 +1,93 @@
+Tutorial: Learning Merb
+
+----- Philosophy
+
+* Main focus these days: fast, lightweight, powerful.
+
+* Modular. For example, view helpers are not needed for a web service, so you
+  should be able to pull those out.
+  
+* Agnostic. merb-core is agnostic, but by default you get DataMapper for ORM,
+  RSpec for testing/specs.
+  
+* Gave a quick look at a model and controller.
+
+----- App, Misc
+
+* `merb-gen core` to build a core app
+
+* Architecture. Using resources.
+
+* DataMapper
+  - Easy to write DataMapper datastore adapters. For example: Salesforce 
+    adapter, YouTube adapter (represents YouTube queries).
+  - Crazy migrations (??)
+  - DataMapper auto upgrade works in production.
+  
+* action-args uses ParseTree on boot up. Interested to dig into further.
+
+* The generated code represents best Merb practices. Should follow the styles 
+  and conventions of generated code.
+  
+* Careful with automigrate rake task. Don't run on production.
+
+* Lots of questions about migrations that I'm not grokking at the moment, but
+  these are essentially DataMapper questions.
+  
+* Not currently a --pretend like option for migration. It's on the way.
+
+* View file names are the same as Rails. It works.
+
+* Slices. Mini-applications that can be distributed as gems.
+  - MerbAuth is a good example of a slice; it's fairly complex.
+  
+* Messages in url are not preferred. Core team wants to change but hasn't come
+  up with better way yet.
+  
+----- Web Services and Content Negotiation
+
+* Follows Rails REST mostly.
+
+* provides:
+  - Can use provides at the action level or at the class level. html is
+    provided by default.
+  - provides exposes content (type) negotiation.
+  - It's fairly simple to add and register your own mime type.
+  - One difference in Merb provides vs. Rails respond_to is that Merb allows
+    you to use conditional and case flow control. respond
+  
+* The display method actually handles content negotiation for you to an extent,
+  it first looks for a template, then if not found looks for a to_ method.
+  
+* Basic controller flow: List what you provide, get an object, display the
+  object.
+  
+----- Conventions
+
+* Look at the generated files, especially controllers.
+
+* There's a public API and a private API. The public API probably provides what
+  you need. If you are sure you need to use te private API that's considered a
+  bug. Monkeypatching Merb is also considered a bug.
+  
+----- Advanced Misc
+
+* Troubleshooting. 
+  - debugger (article about debugging on the wiki)
+  - merb -v, -i
+  
+* Rack Middleware
+  - Layer between web server and framework.
+  - Defines interfaces for request and response.
+  - Your Merb app is a Rack app.
+  - Comment out this LOC in production:
+    use Merb::Rack::Static, Merb.dir_for(:public)
+  - Example of Rack middleware for JSONP (which is a hack that allows you to do
+    cross-domain AJAX requests):
+    http://github.com/mtodd/halcyon/tree/master/lib/rack/jsonp.rb
+  - There's also a rack adapter out there for handling subdomains. Interesting.
+  
+* run_later. Gives a response to the user, then runs the code provided in the
+  block. Good for doing things like sending email, etc.
+  
+* merb-mailer
