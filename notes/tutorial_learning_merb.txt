@@ -11,3 +11,7 @@ Tutorial: Learning Merb
   RSpec for testing/specs.
   
 * Gave a quick look at a model and controller.
+
+----- App
+
+* `merb-gen core` to build a core app
