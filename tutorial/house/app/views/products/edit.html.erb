@@ -1,4 +1,15 @@
-<h1>Products controller, edit action</h1>
+<h1>Edit Product</h1>
 
-<p>Edit this file in <tt>app/views/products/edit.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+<form action="<%= resource(@product) %>" method="POST">
+  <input type="hidden" name="_method" value="put" />
+  
+  Name: <input type="text" name="product[name]" value="<%= @product.name %>" /><br />
+  SKU: <input type="text" name="product[sku]" value="<%= @product.sku %>" /><br />
+  
+  Aisle: <input type="text" name="product[aisle]" value="<%= @product.aisle %>" /><br />
+  Bin: <input type="text" name="product[bin]" value="<%= @product.bin %>" /><br />
+  
+  Inventory: <input type="text" name="product[inventory]" value="<%= @product.inventory %>" /><br />
+  
+  <input type="submit" value="Save" />
+</form>

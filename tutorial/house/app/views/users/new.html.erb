@@ -1,0 +1,10 @@
+<h1>Signup</h1>
+
+<form action="<%= url(:users) %>" method="POST">
+  Username: <input type="text" name="user[login]" /><br />
+  
+  Password: <input type="password" name="user[password]" /><br />
+  Password Confirmation: <input type="password" name="user[password_confirmation]" /><br />
+  
+  <input type="submit" value="Save" />
+</form>

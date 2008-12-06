@@ -6,7 +6,16 @@
     <link rel="stylesheet" href="/stylesheets/master.css" type="text/css" media="screen" charset="utf-8" />
   </head>
   <body>
-    <%#= message[:notice] %>
+    <h1>House</h1>
+    <div id="menu">
+      <% if session[:user] %>
+        <a href="<%= url(:products) %>">Products</a> |
+        <a href="<%= url(:logout) %>">Logout</a>
+      <% else %>
+        <a href="<%= url(:new_user) %>">Signup</a>
+      <% end %>
+    </div>
+    <%= message[:notice] %>
     <%= catch_content :for_layout %>
   </body>
 </html>

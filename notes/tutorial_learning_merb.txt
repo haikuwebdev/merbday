@@ -34,3 +34,10 @@ Tutorial: Learning Merb
 * Lots of questions about migrations that I'm not grokking at the moment, but
   these are essentially DataMapper questions.
   
+* Not currently a --pretend like option for migration. It's on the way.
+
+* View file names are the same as Rails. It works.
+
+* Slices. Mini-applications that can be distributed as gems.
+  - MerbAuth is a good example of a slice; it's fairly complex.
+

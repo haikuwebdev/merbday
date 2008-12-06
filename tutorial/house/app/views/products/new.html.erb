@@ -1,4 +1,13 @@
-<h1>Products controller, new action</h1>
+<h1>Add Product</h1>
 
-<p>Edit this file in <tt>app/views/products/new.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+<form action="<%= url(:products) %>" method="POST">
+  Name: <input type="text" name="product[name]" /><br />
+  SKU: <input type="text" name="product[sku]" /><br />
+  
+  Aisle: <input type="text" name="product[aisle]" /><br />
+  Bin: <input type="text" name="product[bin]" /><br />
+  
+  Inventory: <input type="text" name="product[inventory]" /><br />
+  
+  <input type="submit" value="Save" />
+</form>
